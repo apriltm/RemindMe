@@ -1,0 +1,74 @@
+<html>
+<head><title>Timer</title>
+<link rel="stylesheet" type="text/css" href="timer.css">
+</head>
+<body>
+	<canvas id="canvas" width="500" height="500" style="top: 10%; left: 0%; position: fixed; z-index: 99999;"></canvas>
+
+	<div class="headertitle">Set A Reminder Below</div>
+	<div class="timeinput"><form>
+  <input id="timeForm" type="time" name="appt-time">
+<input type="submit" value="Submit" onchange="ampm(this.value)" onclick="submitTime()"></form>
+
+
+
+	<!-- <select name="cars">
+	<option value="none" selected></option>
+    <option value="one">1</option>
+    <option value="two">2</option>
+    <option value="three">3</option>
+    <option value="four">4</option>
+     <option value="five">5</option>
+    <option value="six">6</option>
+    <option value="seven">7</option>
+    <option value="eight">8</option>
+    <option value="nine">9</option>
+    <option value="ten">ten</option>
+    <option value="three">3</option>
+    <option value="four">4</option>
+  </select>
+  <br><br>
+  <input type="submit">
+</form> -->
+
+</div>
+
+	<script type="text/javascript" src="timeandDate.js"></script>
+	<script type="text/javascript" src="moment.js"></script>
+
+<script>
+function playsound(){
+  var getTime = date.toLocaleTimeString('en-US', {hour12: false});
+  alert('The time is now ' + getTime);
+  audio = new Audio('https://s3.amazonaws.com/audio-experiments/examples/elon_mono.wav');
+  audio.play();
+}
+
+function ampm(time) {
+
+  if (time.value !== "") {
+    var hours = time.split(":")[0];
+    var minutes = time.split(":")[1];
+    var suffix = hours >= 12 ? "pm" : "am";
+    hours = hours % 12 || 12;
+    hours = hours < 10 ? "0" + hours : hours;
+
+    var displayTime = hours + ":" + minutes + " " + suffix;
+  }
+}
+
+
+function submitTime(){
+  //var getTime = moment().format('H');
+  var totalTime = new Date().toLocaleTimeString('en-US', {hour12: false}).replace(/(:\d{2}| [AP]M)$/, "").toString();
+  var myTime = document.getElementById('timeForm').value;
+  //var timestamp = myTime.getTime();
+  alert('Time set for ' + myTime + ". The time is now " + totalTime);
+  if(myTime == totalTime){
+     alert('The time is now ' + myTime);
+  }
+}
+
+</script>
+
+</body></html>

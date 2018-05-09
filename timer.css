@@ -1,0 +1,26 @@
+@font-face { font-family: "Sunshine"; src: url('./fonts/Sunshine.ttf'); }
+@font-face { font-family: "Wendy"; src: url('http://static.tumblr.com/bbzqrao/eObmh3xfn/wendy.ttf'); }
+@font-face { font-family: "Economica"; src: url('./fonts/Economica-Regular.ttf');} 
+
+body {
+	background-color: #000;
+}
+
+.headertitle {
+	color: #28d1fa;
+	font-family: 'Economica';
+	font-size: 60px;
+	top: 100px;
+	right: 200px;
+	position: fixed;
+	text-shadow: #59d4f2 0 0 1em;
+}
+
+.timeinput{
+	top: 200px;
+	right: 100px;
+	position: fixed;
+	width: 400px;
+	height: 100px;
+	z-index: 99999;
+}
